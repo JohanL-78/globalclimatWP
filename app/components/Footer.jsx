@@ -19,6 +19,8 @@ export default function Footer() {
         <span>© 2026 Global Climat</span>
         <div className="flex gap-4">
           <a href="/mentions-legales" className="hover:opacity-70 transition-opacity">Mentions Légales</a>
+          <span className="text-gray-400 dark:text-neutral-600">·</span>
+          <a href="https://johanlorck.fr" target="_blank" rel="noopener" className="hover:opacity-70 transition-opacity">Site par Johan Lorck</a>
         </div>
       </div>
     </footer>
