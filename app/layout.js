@@ -1,6 +1,7 @@
 import Script from "next/script";
 import { Inter, Inter_Tight, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -76,6 +77,7 @@ export default function RootLayout({ children }) {
           </main>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
