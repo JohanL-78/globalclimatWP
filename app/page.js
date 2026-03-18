@@ -5,12 +5,12 @@ import Image from "next/image";
 import ArticleGrid from "./components/ArticleGrid";
 import Pagination from "./components/Pagination";
 
-export const revalidate = 600; // Regénère toutes les 10 min
+export const revalidate = 86400;
 
 async function getPosts(page = 1, perPage = 30) {
   const res = await fetch(
     `https://public-api.wordpress.com/wp/v2/sites/${process.env.NEXT_PUBLIC_WP_SITE}/posts?per_page=${perPage}&page=${page}&_embed=1`,
-    { next: { revalidate: 600 } }
+    { next: { revalidate: 86400 } }
   );
   if (!res.ok) throw new Error('Erreur de chargement des articles');
   const posts = await res.json();

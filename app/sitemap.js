@@ -1,3 +1,5 @@
+export const revalidate = 86400;
+
 const WP_SITE = process.env.NEXT_PUBLIC_WP_SITE;
 
 async function getAllPosts() {

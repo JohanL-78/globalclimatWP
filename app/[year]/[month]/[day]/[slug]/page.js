@@ -19,14 +19,14 @@ import {
   stripHtml,
 } from "@/lib/posts";
 
-export const revalidate = 600;
+export const revalidate = 86400;
 
 const WP_SITE = process.env.NEXT_PUBLIC_WP_SITE;
 
 async function getPost(slug) {
   const res = await fetch(
     `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?slug=${slug}&_embed=1`,
-    { next: { revalidate: 600 } }
+    { next: { revalidate: 86400 } }
   );
   if (!res.ok) return null;
   const posts = await res.json();
@@ -40,7 +40,7 @@ async function getAllPosts() {
   while (true) {
     const res = await fetch(
       `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?per_page=100&page=${page}&_fields=slug,date`,
-      { next: { revalidate: 600 } }
+      { next: { revalidate: 86400 } }
     );
     if (!res.ok) break;
     const batch = await res.json();

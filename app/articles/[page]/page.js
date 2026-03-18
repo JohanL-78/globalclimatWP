@@ -3,14 +3,14 @@ import { notFound, redirect } from "next/navigation";
 import ArticleGrid from "@/app/components/ArticleGrid";
 import Pagination from "@/app/components/Pagination";
 
-export const revalidate = 600;
+export const revalidate = 86400;
 
 const WP_SITE = process.env.NEXT_PUBLIC_WP_SITE;
 
 async function getPosts(page = 1, perPage = 30) {
   const res = await fetch(
     `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?per_page=${perPage}&page=${page}&_embed=1`,
-    { next: { revalidate: 600 } }
+    { next: { revalidate: 86400 } }
   );
   if (!res.ok) return null;
   const posts = await res.json();
@@ -21,7 +21,7 @@ async function getPosts(page = 1, perPage = 30) {
 async function getTotalPages(perPage = 30) {
   const res = await fetch(
     `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?per_page=${perPage}&page=1&_fields=id`,
-    { next: { revalidate: 600 } }
+    { next: { revalidate: 86400 } }
   );
   if (!res.ok) return 1;
   return parseInt(res.headers.get("X-WP-TotalPages") || "1", 10);
