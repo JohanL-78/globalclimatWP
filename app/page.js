@@ -80,7 +80,7 @@ export default async function Home() {
                 </p>
                 {/* CTA bouton */}
                 <div className="mt-8 flex items-center justify-center lg:justify-start gap-4">
-                  <a href="#articles" className="group inline-flex items-center gap-2 rounded-full border border-gray-900 dark:border-white px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 bg-white hover:bg-cyan-500 hover:text-white dark:hover:bg-white dark:hover:text-black">
+                  <a href="#articles" className="group inline-flex items-center gap-2 rounded-full border border-gray-900 dark:border-white px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 bg-white hover:bg-cyan-500 hover:text-white dark:text-black dark:hover:bg-white dark:hover:text-black">
                     Découvrir les articles
                     <svg className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </a>
