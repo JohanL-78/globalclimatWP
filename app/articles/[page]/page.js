@@ -7,7 +7,7 @@ export const revalidate = 86400;
 
 const WP_SITE = process.env.NEXT_PUBLIC_WP_SITE;
 
-async function getPosts(page = 1, perPage = 30) {
+async function getPosts(page = 1, perPage = 10) {
   const res = await fetch(
     `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?per_page=${perPage}&page=${page}&_embed=1`,
     { next: { revalidate: 86400 } }
@@ -18,7 +18,7 @@ async function getPosts(page = 1, perPage = 30) {
   return { posts, totalPages };
 }
 
-async function getTotalPages(perPage = 30) {
+async function getTotalPages(perPage = 10) {
   const res = await fetch(
     `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?per_page=${perPage}&page=1&_fields=id`,
     { next: { revalidate: 86400 } }
