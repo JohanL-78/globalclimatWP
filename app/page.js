@@ -41,7 +41,7 @@ export default async function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-stone-50 dark:bg-[#0a0a0a] text-gray-900 dark:text-white transition-colors duration-300">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }}
@@ -58,11 +58,11 @@ export default async function Home() {
               <div className="mt-10 space-y-6 lg:mt-8">
                 
                 {/* Sous-titre avec points colorés */}
-                <p className="flex items-center justify-center lg:justify-start gap-3 text-[11px] font-medium uppercase tracking-[0.3em] text-gray-600 dark:text-neutral-400">
+                <p className="flex items-center justify-center lg:justify-start gap-3 text-[11px] 2xl:text-[13px] font-medium uppercase tracking-[0.3em] text-gray-600 dark:text-neutral-400">
                   Science <span className="h-1 w-1 rounded-full bg-cyan-500 dark:bg-cyan-500"></span> Actualité <span className="h-1 w-1 rounded-full bg-cyan-500 dark:bg-cyan-500"></span> Analyses
                 </p>
                 <h1
-                  className="max-w-4xl text-5xl font-medium leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl"
+                  className="max-w-4xl text-5xl font-medium leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl 2xl:text-9xl"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Comprendre <br />
@@ -71,8 +71,8 @@ export default async function Home() {
                 </h1>
               </div>
 
-              <div className="mt-12 max-w-lg lg:mt-10">
-                <p className="text-sm font-light leading-relaxed text-gray-600 dark:text-neutral-400 lg:text-base">
+              <div className="mt-12 max-w-lg 2xl:max-w-xl lg:mt-10">
+                <p className="text-sm font-light leading-relaxed text-gray-600 dark:text-neutral-400 lg:text-base 2xl:text-lg">
                   Depuis 2013, Global Climat décrypte l&apos;actualité du réchauffement
                   climatique à travers les publications scientifiques de référence :
                   Nature, Science, NOAA, NASA. Analyses, données et synthèses pour
@@ -80,7 +80,7 @@ export default async function Home() {
                 </p>
                 {/* CTA bouton */}
                 <div className="mt-8 flex items-center justify-center lg:justify-start gap-4">
-                  <a href="#articles" className="group inline-flex items-center gap-2 rounded-full border border-gray-900 dark:border-white px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black">
+                  <a href="#articles" className="group inline-flex items-center gap-2 rounded-full border border-gray-900 dark:border-white px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 bg-white hover:bg-cyan-500 hover:text-white dark:hover:bg-white dark:hover:text-black">
                     Découvrir les articles
                     <svg className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </a>
@@ -124,7 +124,7 @@ export default async function Home() {
         </section>
 
         {/* --- ARTICLES SECTION --- */}
-        <section id="articles" className="bg-white dark:bg-[#0a0a0a] py-24 lg:py-32">
+        <section id="articles" className="bg-stone-50 dark:bg-[#0a0a0a] py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
             <div className="mb-16 flex items-end justify-between border-b border-gray-200 dark:border-white/10 pb-6">
                <h2
