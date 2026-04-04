@@ -58,18 +58,12 @@ export default async function sitemap() {
     },
   ];
 
-  const articleEntries = posts.map((post) => {
-    const d = new Date(post.date);
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, "0");
-    const day = String(d.getDate()).padStart(2, "0");
-    return {
-      url: `${baseUrl}/${year}/${month}/${day}/${post.slug}`,
-      lastModified: new Date(post.modified || post.date),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    };
-  });
+  const articleEntries = posts.map((post) => ({
+    url: `${baseUrl}/${post.slug}`,
+    lastModified: new Date(post.modified || post.date),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
   const paginationEntries = Array.from({ length: totalPages - 1 }, (_, i) => ({
     url: `${baseUrl}/articles/${i + 2}`,

@@ -39,7 +39,7 @@ async function getAllPosts() {
   let page = 1;
   while (true) {
     const res = await fetch(
-      `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?per_page=100&page=${page}&_fields=slug,date`,
+      `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?per_page=100&page=${page}&_fields=slug`,
       { next: { revalidate: 86400 } }
     );
     if (!res.ok) break;
@@ -55,15 +55,9 @@ async function getAllPosts() {
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
-  return posts.map((post) => {
-    const d = new Date(post.date);
-    return {
-      year: String(d.getFullYear()),
-      month: String(d.getMonth() + 1).padStart(2, "0"),
-      day: String(d.getDate()).padStart(2, "0"),
-      slug: post.slug,
-    };
-  });
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({ params }) {
@@ -102,18 +96,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function PostPage({ params }) {
-  const { year, month, day, slug } = await params;
+  const { slug } = await params;
   const post = await getPost(slug);
   if (!post) notFound();
-
-  // Validate date segments match the post date
-  const d = new Date(post.date);
-  const expectedYear = String(d.getFullYear());
-  const expectedMonth = String(d.getMonth() + 1).padStart(2, "0");
-  const expectedDay = String(d.getDate()).padStart(2, "0");
-  if (year !== expectedYear || month !== expectedMonth || day !== expectedDay) {
-    notFound();
-  }
 
   const title = stripHtml(post.title?.rendered || "");
   const excerpt = stripHtml(post.excerpt?.rendered || "");
