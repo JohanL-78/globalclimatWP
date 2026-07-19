@@ -21,7 +21,7 @@ async function getPosts(page = 1, perPage = 10) {
 async function getTotalPages(perPage = 10) {
   const res = await fetch(
     `https://public-api.wordpress.com/wp/v2/sites/${WP_SITE}/posts?per_page=${perPage}&page=1&_fields=id`,
-    { next: { revalidate: 86400 } }
+    { next: { revalidate:6 } }
   );
   if (!res.ok) return 1;
   return parseInt(res.headers.get("X-WP-TotalPages") || "1", 10);
