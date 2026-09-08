@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Mentions légales",
-  description: "Mentions légales du site global-climat.com.",
+  description: "Mentions légales du site web global-climat.com.",
 };
 
 export default function MentionsLegalesPage() {
