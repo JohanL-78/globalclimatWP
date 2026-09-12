@@ -41,7 +41,7 @@ export default function AboutPage() {
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-neutral-400">
               Pour cela, différents types de sources sont utilisées : revues
               scientifiques (Nature, Geophysical Research Letters,
-              Science…), travaux de chercheurs, agences d&apos;information
+              Science…), rapports, travaux de chercheurs, agences d&apos;information
               ou organismes spécifiquement dédiés au climat comme la NOAA ou
               la NASA.
             </p>
