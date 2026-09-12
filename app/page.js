@@ -62,11 +62,11 @@ export default async function Home() {
                   Science <span className="h-1 w-1 rounded-full bg-cyan-500 dark:bg-cyan-500"></span> Actualité <span className="h-1 w-1 rounded-full bg-cyan-500 dark:bg-cyan-500"></span> Analyses
                 </p>
                 <h1
-                  className="max-w-4xl text-5xl font-medium leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl 2xl:text-9xl"
+                  className="max-w-4xl text-5xl font-medium leading-[0.95] tracking-tight sm:text-6xl md:text-6xl lg:text-7xl 2xl:text-9xl"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Comprendre <br />
-                  <span className="bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-800 dark:from-cyan-500 dark:via-cyan-600 dark:to-cyan-800 bg-clip-text text-transparent italic pr-2">le changement</span> <br />
+                  le<span className="bg-gradient-to-r from-cyan-500 via-cyan-600 to-cyan-800 dark:from-cyan-500 dark:via-cyan-600 dark:to-cyan-800 bg-clip-text text-transparent italic pr-2"> changement</span> <br />
                   climatique.
                 </h1>
               </div>

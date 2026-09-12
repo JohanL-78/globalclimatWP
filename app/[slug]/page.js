@@ -9,7 +9,6 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
   CardDescription,
 } from "@/components/ui/card";
 import {
@@ -144,9 +143,9 @@ export default async function PostPage({ params }) {
 
         <Card className="overflow-hidden border border-border/70 bg-card/95 shadow-xl">
           <CardHeader className="space-y-5 border-b border-border/60 bg-secondary/30 px-6 py-10 sm:px-12">
-            <CardTitle className="font-site-heading text-balance text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
+            <h1 className="font-site-heading text-balance text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
               {title}
-            </CardTitle>
+            </h1>
             {excerpt ? (
               <CardDescription className="font-tight text-pretty text-lg leading-relaxed text-muted-foreground">
                 {excerpt}

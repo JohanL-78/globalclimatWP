@@ -12,6 +12,7 @@ export default function ArticleGrid({ posts }) {
         const truncatedExcerpt = excerpt.length > 210 ? `${excerpt.slice(0, 210).trimEnd()}...` : excerpt;
         const featuredImage = getFeaturedImage(post);
         const publishedAt = formatPublishedDate(post.date);
+        const articleUrl = getArticleUrl(post);
 
         return (
           <div
@@ -19,7 +20,11 @@ export default function ArticleGrid({ posts }) {
             className="group relative border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-[#0f0f0f] hover:bg-gray-100 dark:hover:bg-white/5 flex flex-col overflow-hidden transition-all duration-300"
           >
             {/* Image */}
-            <div className="relative aspect-video w-full overflow-hidden">
+            <Link
+              href={articleUrl}
+              aria-label={title}
+              className="relative block aspect-video w-full overflow-hidden focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-cyan-600"
+            >
               {featuredImage ? (
                 <Image
                   src={featuredImage.src}
@@ -38,12 +43,17 @@ export default function ArticleGrid({ posts }) {
                   {publishedAt}
                 </div>
               )}
-            </div>
+            </Link>
 
             {/* Content */}
             <div className="flex flex-1 flex-col p-6">
               <h3 className="mb-4 text-xl font-medium leading-tight text-gray-900 dark:text-white group-hover:opacity-70 transition-opacity" style={{ fontFamily: "var(--font-display)" }}>
-                {title}
+                <Link
+                  href={articleUrl}
+                  className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-600"
+                >
+                  {title}
+                </Link>
               </h3>
               <p className="mb-6 flex-1 text-sm leading-relaxed text-gray-600 dark:text-neutral-400">
                 {truncatedExcerpt || "Découvrez les détails de cette actualité climatique."}
@@ -52,7 +62,7 @@ export default function ArticleGrid({ posts }) {
               {/* Footer */}
               <div className="flex items-center justify-between border-t border-gray-200 dark:border-white/10 pt-4">
                 <Link
-                  href={getArticleUrl(post)}
+                  href={articleUrl}
                   className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-white hover:opacity-70 transition-opacity flex items-center gap-2"
                 >
                   Lire
